@@ -23,6 +23,7 @@ export const Homes: FC = () => {
             heroImg={currentHome.image}
             tags={currentHome.tags}
             subheading={subheading}
+            saved={currentHome.saved}
             description={currentHome.description}
             onHeartClick={() => {
               if (currentHome.saved) {

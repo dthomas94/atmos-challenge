@@ -20,6 +20,7 @@ interface InfoCardProps {
   tags?: Array<string>;
   description: string;
   onHeartClick: () => void;
+  saved: boolean;
 }
 
 export const InfoCard: FC<InfoCardProps> = ({
@@ -29,6 +30,7 @@ export const InfoCard: FC<InfoCardProps> = ({
   subheading,
   tags,
   description,
+  saved,
   onHeartClick,
 }) => {
   return (
@@ -38,7 +40,7 @@ export const InfoCard: FC<InfoCardProps> = ({
           <img height="100%" width="100%" src={heroImg} />
         </Box>
         <Button
-          icon={<Favorite color="red" />}
+          icon={<Favorite color={saved ? "red" : "black"} />}
           hoverIndicator
           alignSelf="start"
           onClick={onHeartClick}

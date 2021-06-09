@@ -25,6 +25,7 @@ export const Lots: FC = () => {
             id={currentLot.lotId}
             heroImg={currentLot.image}
             subheading={subheading}
+            saved={currentLot.saved}
             description={currentLot.description}
             onHeartClick={() => {
               if (currentLot.saved) {
