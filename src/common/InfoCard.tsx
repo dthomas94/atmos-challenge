@@ -4,7 +4,6 @@ import {
   Card,
   CardHeader,
   CardBody,
-  CardFooter,
   Text,
   Box,
   Heading,
@@ -14,13 +13,15 @@ import { Pill } from "./Pill";
 
 interface InfoCardProps {
   id: number;
-  heroImg: string;
+  heroImg?: string;
   heading: string;
   subheading: string;
   tags?: Array<string>;
   description: string;
   onHeartClick: () => void;
   saved: boolean;
+  onCardClick?: () => void;
+  hasHeader?: boolean;
 }
 
 export const InfoCard: FC<InfoCardProps> = ({
@@ -32,20 +33,31 @@ export const InfoCard: FC<InfoCardProps> = ({
   description,
   saved,
   onHeartClick,
+  onCardClick,
+  hasHeader = true,
 }) => {
   return (
-    <Card pad="small" style={{ width: "100%", maxWidth: 500 }}>
-      <CardHeader direction="row">
-        <Box direction="row" justify="center" width="100%">
-          <img height="100%" width="100%" src={heroImg} />
-        </Box>
-        <Button
-          icon={<Favorite color={saved ? "red" : "black"} />}
-          hoverIndicator
-          alignSelf="start"
-          onClick={onHeartClick}
-        />
-      </CardHeader>
+    <Card
+      pad="small"
+      style={{ width: "100%", maxWidth: 500 }}
+      onClick={onCardClick}
+    >
+      {hasHeader && (
+        <CardHeader direction="row">
+          <Box direction="row" justify="center" width="100%">
+            <img height="100%" width="100%" src={heroImg} />
+          </Box>
+          <Button
+            icon={<Favorite color={saved ? "red" : "black"} />}
+            hoverIndicator
+            alignSelf="start"
+            onClick={(e) => {
+              e.stopPropagation();
+              onHeartClick();
+            }}
+          />
+        </CardHeader>
+      )}
       <CardBody pad="small">
         <Heading responsive size="small">
           {heading}
