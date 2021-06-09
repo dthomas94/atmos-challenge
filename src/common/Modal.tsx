@@ -1,4 +1,3 @@
-import { Box, Heading } from "grommet";
 import { FC, ReactNode } from "react";
 import ReactModal from "react-modal";
 

@@ -45,7 +45,7 @@ export const InfoCard: FC<InfoCardProps> = ({
       {hasHeader && (
         <CardHeader direction="row">
           <Box direction="row" justify="center" width="100%">
-            <img height="100%" width="100%" src={heroImg} />
+            <img alt="hero" height="100%" width="100%" src={heroImg} />
           </Box>
           <Button
             icon={<Favorite color={saved ? "red" : "black"} />}
