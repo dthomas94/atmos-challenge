@@ -8,8 +8,8 @@ interface PillProps {
 
 export const Pill: FC<PillProps> = ({ text, borderColor = "light-3" }) => (
   <Box
-    round="small"
-    pad={{ horizontal: "medium", vertical: "small" }}
+    round="medium"
+    pad={{ horizontal: "medium", vertical: "6px" }}
     border={{ color: borderColor }}
   >
     {text}

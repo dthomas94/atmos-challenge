@@ -1,17 +1,20 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 import homesReducer, { fetchHomePlans } from "./homes/homesSlice";
 import lotsReducer, { fetchLots } from "./lots/lotsSlice";
-//import combinationsReducer from "../features/combinations/combinationsSlice";
+import combinationsReducer, {
+  fetchCombinations,
+} from "./combinations/combinationsSlice";
 
 export const store = configureStore({
   reducer: {
     lots: lotsReducer,
     homes: homesReducer,
-    //combinations: combinationsReducer,
+    combinations: combinationsReducer,
   },
   preloadedState: {
     lots: { value: fetchLots() },
     homes: { value: fetchHomePlans() },
+    combinations: { value: fetchCombinations() },
   },
 });
 

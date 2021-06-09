@@ -13,7 +13,7 @@ export const Lots: FC = () => {
   console.log(lots);
 
   return (
-    <Box>
+    <Box direction="row">
       {lots.map((currentLot) => {
         const subheading = `${currentLot.acres} acres - ${acresToSquareFeet(
           currentLot.acres

@@ -12,7 +12,7 @@ export const Homes: FC = () => {
   console.log(homes);
 
   return (
-    <Box>
+    <Box direction="row-responsive" wrap style={{ columnGap: 20 }}>
       {homes.map((currentHome) => {
         const subheading = `${currentHome.numBeds} beds - ${currentHome.numBaths} baths - ${currentHome.sqft}`;
         return (
@@ -21,6 +21,7 @@ export const Homes: FC = () => {
             heading={currentHome.name}
             id={currentHome.homePlanId}
             heroImg={currentHome.image}
+            tags={currentHome.tags}
             subheading={subheading}
             description={currentHome.description}
             onHeartClick={() => {

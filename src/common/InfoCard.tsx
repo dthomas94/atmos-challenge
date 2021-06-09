@@ -1,5 +1,14 @@
 import React, { FC } from "react";
-import { Button, Card, CardHeader, CardBody, CardFooter } from "grommet";
+import {
+  Button,
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Text,
+  Box,
+  Heading,
+} from "grommet";
 import { Favorite } from "grommet-icons";
 import { Pill } from "./Pill";
 
@@ -23,19 +32,31 @@ export const InfoCard: FC<InfoCardProps> = ({
   onHeartClick,
 }) => {
   return (
-    <Card>
+    <Card pad="small" style={{ width: "100%", maxWidth: 500 }}>
       <CardHeader direction="row">
-        <img src={heroImg} />
+        <Box direction="row" justify="center" width="100%">
+          <img height="100%" width="100%" src={heroImg} />
+        </Box>
         <Button
           icon={<Favorite color="red" />}
           hoverIndicator
+          alignSelf="start"
           onClick={onHeartClick}
         />
       </CardHeader>
       <CardBody pad="small">
-        <span>{heading}</span>
-        <span>{subheading}</span>
-        {tags && tags.map((tag) => <Pill text={tag} />)}
+        <Heading responsive size="small">
+          {heading}
+        </Heading>
+        <Text>{subheading}</Text>
+        {tags && (
+          <Box direction="row" style={{ columnGap: 10 }}>
+            {tags.map((tag) => (
+              <Pill key={tag} text={tag} />
+            ))}
+          </Box>
+        )}
+        <Text>{description}</Text>
       </CardBody>
     </Card>
   );
