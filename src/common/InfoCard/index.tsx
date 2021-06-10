@@ -9,7 +9,9 @@ import {
   Heading,
 } from "grommet";
 import { Favorite } from "grommet-icons";
-import { Pill } from "./Pill";
+import { Pill } from "../Pill";
+import "./InfoCard.scss";
+import cn from "classnames";
 
 interface InfoCardProps {
   id: number;
@@ -41,36 +43,43 @@ export const InfoCard: FC<InfoCardProps> = ({
       pad="small"
       style={{ width: "100%", maxWidth: 500 }}
       onClick={onCardClick}
+      className={cn("infoCard", hasHeader && "has-header", tags && "has-tags")}
     >
       {hasHeader && (
-        <CardHeader direction="row">
-          <Box direction="row" justify="center" width="100%">
+        <CardHeader className="infoCardHeader" direction="row" gap="none">
+          <Box className="img-hero-container" direction="row" justify="center">
             <img alt="hero" height="100%" width="100%" src={heroImg} />
           </Box>
           <Button
+            className="heartButton"
             icon={<Favorite color={saved ? "red" : "black"} />}
             hoverIndicator
             alignSelf="start"
             onClick={(e) => {
-              e.stopPropagation();
+              e.preventDefault();
               onHeartClick();
             }}
           />
         </CardHeader>
       )}
-      <CardBody pad="small">
-        <Heading responsive size="small">
-          {heading}
-        </Heading>
-        <Text>{subheading}</Text>
-        {tags && (
-          <Box direction="row" style={{ columnGap: 10 }}>
-            {tags.map((tag) => (
-              <Pill key={tag} text={tag} />
-            ))}
-          </Box>
-        )}
-        <Text>{description}</Text>
+      <CardBody className="infoCardBody" pad="small">
+        <Box className="infoCardBodyTop">
+          <Heading className="infoCardBodyHeading" responsive size="small">
+            {heading}
+          </Heading>
+          <Text>{subheading}</Text>
+
+          {tags && (
+            <Box className="tags">
+              {tags.map((tag) => (
+                <Pill key={tag} text={tag} />
+              ))}
+            </Box>
+          )}
+        </Box>
+        <Box className="infoCardBodyBottom">
+          <Text>{description}</Text>
+        </Box>
       </CardBody>
     </Card>
   );

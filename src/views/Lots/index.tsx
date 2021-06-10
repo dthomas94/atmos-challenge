@@ -8,6 +8,7 @@ import {
 import { saveLot, unsaveLot } from "../../reduxConfigurations/lots/lotsSlice";
 import { acresToSquareFeet } from "../../utils/dimensions";
 import { Link } from "react-router-dom";
+import "./Lots.scss";
 
 export const lotSubheading = (acres: number) =>
   `${acres} acres - ${acresToSquareFeet(acres).toLocaleString()} sqft`;
@@ -22,6 +23,7 @@ export const Lots: FC = () => {
         const { lotId, image, address, saved, description, acres } = currentLot;
         return (
           <Link
+            style={{ textDecoration: "none" }}
             key={lotId}
             to={{
               pathname: `/lots?lotId=${currentLot.lotId}`,

@@ -12,6 +12,7 @@ import { Homes } from "./views/HomePlans";
 import { HomePlanModal } from "./views/HomePlans/HomePlanModal";
 import { Lots } from "./views/Lots";
 import { LotModal } from "./views/Lots/LotModal";
+import "./App.scss";
 
 const StyledNavLink = styled(NavLink)`
   color: black;

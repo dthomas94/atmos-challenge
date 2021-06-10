@@ -39,6 +39,7 @@ export const Homes: FC = () => {
         return (
           <Link
             key={homePlanId}
+            style={{ textDecoration: "none" }}
             to={{
               pathname: `/homes?homePlanId=${currentHome.homePlanId}`,
               state: { homePlanId: currentHome.homePlanId },
