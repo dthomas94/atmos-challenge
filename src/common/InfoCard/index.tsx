@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import {
   Button,
   Card,
@@ -40,8 +40,6 @@ export const InfoCard: FC<InfoCardProps> = ({
 }) => {
   return (
     <Card
-      pad="small"
-      style={{ width: "100%", maxWidth: 500 }}
       onClick={onCardClick}
       className={cn("infoCard", hasHeader && "has-header", tags && "has-tags")}
     >

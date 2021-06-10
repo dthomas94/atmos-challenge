@@ -18,7 +18,7 @@ export const Lots: FC = () => {
   const lots = useAppSelector((state) => state.lots.value);
 
   return (
-    <Box direction="row-responsive" wrap style={{ columnGap: 20 }}>
+    <Box className="lotsContainer" direction="row-responsive">
       {lots.map((currentLot) => {
         const { lotId, image, address, saved, description, acres } = currentLot;
         return (

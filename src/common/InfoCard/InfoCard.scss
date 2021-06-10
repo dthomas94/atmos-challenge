@@ -1,26 +1,30 @@
 .infoCard {
-  max-height: 540px;
+  height: 540px;
   position: relative;
+  padding: 5px;
+  width: 500px;
 
   &.has-header {
     .infoCardBodyTop {
       position: fixed;
     }
-
     .infoCardBodyBottom {
-      margin-top: 120px;
+      margin-top: 90px;
     }
   }
 
   &.has-tags.has-header {
     .infoCardBodyBottom {
-      margin-top: 155px;
+      margin-top: 120px;
     }
   }
 
   .infoCardHeader {
     padding-bottom: 10px;
     border-bottom: 1px solid rgba(48, 46, 46, 0.219);
+    max-height: 290px;
+    overflow: hidden;
+
     .heartButton {
       position: absolute;
       right: 15px;
@@ -43,6 +47,10 @@
 
   .infoCardBody {
     position: relative;
+
+    .infoCardBodyHeading {
+      margin: 5px 0;
+    }
 
     .infoCardBodyBottom {
       overflow: scroll;

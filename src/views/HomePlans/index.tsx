@@ -11,6 +11,7 @@ import {
   unsaveHome,
 } from "../../reduxConfigurations/homes/homesSlice";
 import { Link } from "react-router-dom";
+import "./HomePlans.scss";
 
 export const homeSubheading = (
   numBeds: number,
@@ -23,7 +24,7 @@ export const Homes: FC = () => {
   const homes = useAppSelector((state) => state.homes.value);
 
   return (
-    <Box direction="row-responsive" wrap style={{ columnGap: 20 }}>
+    <Box className="homePlansContainer" direction="row-responsive">
       {homes.map((currentHome) => {
         const {
           homePlanId,

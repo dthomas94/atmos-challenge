@@ -52,7 +52,13 @@ export const HomePlanModal: FC = () => {
       isOpen
       onCloseModal={() => history.push("/homes")}
       style={{
-        content: { width: "75%", margin: "0 auto" },
+        content: {
+          width: "75%",
+          margin: "0 auto",
+          borderRadius: "5px",
+          borderColor: "transparent",
+          padding: "10px",
+        },
       }}
     >
       <Box direction="row">
